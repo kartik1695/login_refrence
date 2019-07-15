@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      
+      
+                 }
+
+/* Full-width input fields */
+input[type=text]{
+  
+  width: 100%;
+  padding: 15px 20px;
+  margin: 16px 0;
+  display: inline-block;
+  border-radius: 5px solid #ccc;
+  
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 16px 0;
+  display: inline-block;
+  border-radius: 5px solid #ccc;
+}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: rgb(79, 58, 117);
+  color: white;
+  padding: 14px 20px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%  ;
+  position: relative;
+  left: 0px;
+
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.modal {
+  
+}
+
+
+
+.container {
+  padding: 16px;
+  padding-left: 50px;
+  position: relative;
+  width :300px;
+  top: 5%;
+  left: 35px;
+}
+
+span.password {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #11bece;
+  margin: 5% 30% 15% 45%; /* 5% from the top, 15% from the bottom and centered */
+  box-shadow: 0 50px 100px rgba(0, 0, 0, .6);
+  border-radius: 15px;
+  top: 70px;
+  left:-10%;
+  right: 100%;
+  width: 30%;
+  height: 50%;
+
+  position: fixed; 
+}
+
+/* The Close Button (x) */
+/*.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+/* Change styles for span and cancel button on extra small screens */
+
+.btn {
+  position: relative;
+  height: 40px;
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+  size: 50%;
+  overflow: hidden;
+  top: 100% ;
+
+  border-width: 10px;
+  outline: none;
+  border-radius: 7px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #3a39a8;
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #6143e6;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+</style>
+</head>
+    {% load static %}
+  <body style="background-image:url({% static "bot_login/login.jpg" %});">
+        
+      
+
+
+<div class="modal">
+    
+  <form method = 'POST' class="modal-content animate" >{%csrf_token%}
+    
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button class="btn" type="submit">Login</button>
+      <p style="color: beige; left:44%; position: fixed;"> {{errors}}</p>
+      
+    </div>
+
+   
+  </form>
+</div>
+
+
+</body>
+</html>
